@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五环</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.circle{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+		}
+		.blue{
+			border: 7px solid blue;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.blue:after{
+			content: '';
+			width: 150px;
+			height: 150px;
+			border: 7px solid blue;
+			border-radius: 50%;
+			position: absolute;
+			left: -7px;
+			top: -7px;	
+			z-index: 1;
+			border-bottom-color: transparent;
+		}
+		.black{
+			border: 7px solid black;
+			position: absolute;
+			left: 170px;
+			top: 0px;
+		}
+		.black:after{
+			content: '';
+			width: 150px;
+			height: 150px;
+			border: 7px solid #000;
+			border-radius: 50%;
+			position: absolute;
+			left: -7px;
+			top: -7px;
+			z-index: 1;	
+			border-left-color: transparent;
+		}
+		.red{
+			border: 7px solid red;
+			position: absolute;
+			left: 340px;
+			top: 0px;
+		}
+		.red:after{
+			content: '';
+			width: 150px;
+			height: 150px;
+			border: 7px solid red;
+			border-radius: 50%;
+			position: absolute;
+			left: -7px;
+			top: -7px;
+			z-index: 1;
+			border-left-color: transparent;	
+		}
+		.yellow{
+			border: 7px solid yellow;
+			position: absolute;
+			left: 85px;
+			top: 100px;
+
+		}
+		.yellow:after{
+			content: '';
+			width: 150px;
+			height: 150px;
+			border: 7px solid yellow;
+			border-radius: 50%;
+			position: absolute;
+			left: -7px;
+			top: -7px;	
+		}
+		.green{
+			border: 7px solid green;
+			position: absolute;
+			left: 255px;
+			top: 100px;
+
+		}
+		.green:after{
+			content: '';
+			width: 150px;
+			height: 150px;
+			border: 7px solid green;
+			border-radius: 50%;
+			position: absolute;
+			left: -7px;
+			top: -7px;	
+			z-index: 1;
+			border-top-color: transparent;
+			border-right-color: transparent;
+		}
+	</style>
+</head>
+<body>
+	<div class="circle blue"></div>
+	<div class="circle black"></div>
+	<div class="circle red"></div>
+	<div class="circle yellow"></div>
+	<div class="circle green"></div>
+</body>
+</html>
