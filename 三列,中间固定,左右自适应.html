@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-box;
+			display: -o-box;
+			display: -box;
+			-webkit-box-orient: horizontal;
+			-moz-box-orient: horizontal;
+			-ms-box-orient: horizontal;
+			-o-box-orient: horizontal;
+			-box-orient: horizontal;
+		}
+		#left, #middle, #right{
+			height: 300px;
+		}
+		#left{
+			-webkit-box-flex: 1;
+			-moz-box-flex: 1;
+			-ms-box-flex: 1;
+			-o-box-flex: 1;
+			-box-flex: 1;
+			background: pink;
+		}
+		#middle{
+			width: 100px;
+			background: #ccc;
+		}
+		#right{
+			-webkit-box-flex: 1;
+			-moz-box-flex: 1;
+			-ms-box-flex: 1;
+			-o-box-flex: 1;
+			-box-flex: 1;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="left"></div>
+		<div id="middle"></div>
+		<div id="right"></div>
+	</div>
+</body>
+</html>

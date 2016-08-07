@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			-webkit-box-orient: horizontal;
+			-moz-box-orient: horizontal;
+			-ms-box-orient: horizontal;
+			-o-box-orient: horizontal;
+			-box-orient: horizontal;
+		}
+		#left, #middle, #right{
+			height: 300px;
+		}
+		#left{
+			width: 100px;
+			background: pink;
+			float: left;
+		}
+		#middle{
+			background: #ccc;
+		}
+		#right{
+			width: 100px;
+			background: pink;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="left"></div>
+		<div id="right"></div>
+		<div id="middle"></div>
+	</div>
+</body>
+</html>
