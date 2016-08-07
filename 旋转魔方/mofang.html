@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转魔方</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000;
+			-webkit-perspective: 1000px;
+			-webkit-perspective-origin: 50% -95%;
+		}
+		#container{
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			/*background: #f00;*/
+			-webkit-transform-style:preserve-3d;
+			-webkit-animation: rotate 3.5s linear infinite;
+		}
+		@-webkit-keyframes rotate{
+			from{
+
+			}
+			to{
+				-webkit-transform: rotateY(-360deg);
+			}
+		}
+		.cube{
+			width: 200px;
+			height: 200px;
+			/*background: rgba(255, 255, 255, .6);
+			font-size: 60px;
+			text-align: center;
+			line-height: 200px;
+			border: 1px solid #000;
+			-webkit-border-radius: 10px;*/
+			position: absolute;
+		}
+		img{
+			width: 200px;
+			height: 200px;
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid #000;
+			-webkit-border-radius: 10px;
+			opacity: 0.5;
+			/*position: absolute;*/
+		}
+		.one{
+			-webkit-transform: rotateY(180deg) translateZ(100px);
+		}
+		.two{
+			-webkit-transform: rotateY(-90deg) translateZ(100px);
+		}
+		.three{
+			-webkit-transform: rotateY(90deg) translateZ(100px);
+		}
+		.four{
+			-webkit-transform: rotateX(90deg) translateZ(100px);
+		}
+		.five{
+			-webkit-transform: rotateX(-90deg) translateZ(100px);
+		}
+  		.six{
+			-webkit-transform: translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div class="cube one">
+			<img src="img/1.jpg" alt="">
+		</div>
+		<div class="cube two">
+			<img src="img/2.jpg" alt="">
+		</div>
+		<div class="cube three">
+			<img src="img/3.jpg" alt="">
+		</div>
+ 		<div class="cube four">
+			<img src="img/4.jpg" alt="">
+ 		</div>
+		<div class="cube five">
+			<img src="img/5.jpg" alt="">
+		</div>
+		<div class="cube six">
+			<img src="img/6.jpg" alt="">
+		</div>
+	</div>
+</body>
+</html>
