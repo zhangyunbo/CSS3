@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #container{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right: 300px;
+            bottom: 300px;
+        }
+        img{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        #home{
+            width: 50px;
+            height: 50px;
+            -webkit-transition: transform .5s linear;
+            -moz-transition: transform .5s linear;
+            -ms-transition: transform .5s linear;
+            -o-transition: transform .5s linear;
+            transition: transform .5s linear;
+        }
+        #menu img{
+            -webkit-transition: transform .5s linear;
+            -moz-transition: transform .5s linear;
+            -ms-transition: transform .5s linear;
+            -o-transition: transform .5s linear;
+            transition: transform .5s linear;
+        }
+        /*.imgscale{
+            -webkit-animation: imgscale 1s linear;
+            -o-animation: imgscale 1s linear;
+            animation: imgscale 1s linear;
+        }
+        @-webkit-keyframes imgscale {
+            0% {
+
+            }
+            50% {
+                -webkit-transform: scale(2);
+                -moz-transform: scale(2);
+                -ms-transform: scale(2);
+                -o-transform: scale(2);
+                transform: scale(2);
+            }
+            100% {
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+                transform: scale(1);
+            }
+        }*/
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="menu">
+            <img src="img/close.png" alt=""/>
+            <img src="img/full.png" alt=""/>
+            <img src="img/open.png" alt=""/>
+            <img src="img/prev.png" alt=""/>
+            <img src="img/refresh.png" alt=""/>
+        </div>
+        <div id="home">
+            <img src="img/home.png" alt=""/>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var oHome = document.querySelector('#home');
+            var oMenu = document.querySelector('#menu');
+            var aImg = oMenu.querySelectorAll('img');
+            var bClicked = false;//标识是否被点击过
+            var currentTransform = '';
+            oHome.addEventListener('click', function(){
+                if(bClicked){//要合并
+                    setStyle(this, 'transform', 'rotate(0deg)');
+                    for(var i=0; i<aImg.length; i++) {
+                        setStyle(aImg[i], 'transitionDelay', i*50 + 'ms');
+                        setStyle(aImg[i], 'transform', 'translate(0, 0) rotate(0deg) scale(1)');
+                    }
+                }else{//要散开
+                    setStyle(this, 'transform', 'rotate(-360deg)');
+                    for(var i=0; i<aImg.length; i++){
+                        setStyle(aImg[i], 'transitionDelay', (aImg.length-i)*50 + 'ms');
+                        var x = -150 * Math.cos(22.5 * i * Math.PI / 180);
+                        var y = -150 * Math.sin(22.5 * i * Math.PI / 180);
+                        setStyle(aImg[i], 'transform', 'translate('+x+'px, '+y+'px) rotate(-360deg) scale(1)');
+                    }
+                }
+                bClicked = !bClicked;
+            }, false);
+            for(var i=0; i<aImg.length; i++) {
+                aImg[i].addEventListener('click', clickHandler, false);
+            }
+            function clickHandler(){
+                currentTransform = this.style.transform;
+                setStyle(this, 'transform',  currentTransform + ' scale(2)');
+                this.addEventListener('webkitTransitionEnd', fn, false);
+            }
+            function fn(){
+                setStyle(this, 'transform',  currentTransform.replace(/scale\(1\)/, '') + ' scale(1)');
+                this.removeEventListener('webkitTransitionEnd', fn);
+            }
+            function setStyle(elem, prop, value){
+                ['Webkit', 'Moz', 'Ms', 'O', ''].forEach(function(prefix){
+                    elem.style[prefix + prop.charAt(0).toUpperCase() + prop.substring(1)] = value;
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
